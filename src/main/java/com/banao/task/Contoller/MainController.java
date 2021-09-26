@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
-
 @Controller
 public class MainController {
     @Autowired
@@ -19,7 +18,7 @@ public class MainController {
 
     @RequestMapping("/")
     public String home(Model model) {
-        model.addAttribute("allUsers",mainService.fetchAllUserDetails());
+        model.addAttribute("allUsers", mainService.fetchAllUserDetails());
         return "admindashboard";
     }
 
@@ -32,15 +31,14 @@ public class MainController {
     @RequestMapping("/signup")
     public String signUp(Model model) {
         model.addAttribute("userModel", new MyUser());
-        model.addAttribute("signuperror","");
+        model.addAttribute("signuperror", "");
         return "signup";
     }
 
     @PostMapping("/process-user")
-    public String signupUser(@ModelAttribute("userModel") MyUser myUser,Model model) {
-        if(mainService.checkUserExists(myUser.getEmail()))
-        {
-            model.addAttribute("signuperror","User Already Exists");
+    public String signupUser(@ModelAttribute("userModel") MyUser myUser, Model model) {
+        if (mainService.checkUserExists(myUser.getEmail())) {
+            model.addAttribute("signuperror", "User Already Exists");
             return "signup";
         }
         mainService.signupUser(myUser);

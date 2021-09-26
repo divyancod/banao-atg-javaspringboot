@@ -62,8 +62,8 @@ public class MyUser {
                 ", firstName='" + firstName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", enabled='" + enabled + '\'' +
+                ", enabled=" + enabled +
+                ", userType='" + userType + '\'' +
                 '}';
     }
-
 }

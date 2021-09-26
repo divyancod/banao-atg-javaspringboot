@@ -5,11 +5,17 @@ import com.banao.task.Configuration.MyUserRowMapper;
 import com.banao.task.Model.MyUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -74,4 +80,12 @@ public class MainUserDaoImpl implements MainUserDao {
         return myUser;
     }
 
+    @Override
+    public List<GrantedAuthority> getAuthorities(int id) {
+        {
+            List<GrantedAuthority> list = new ArrayList<>();
+            list.add(new SimpleGrantedAuthority("admin"));
+            return list;
+        }
+    }
 }

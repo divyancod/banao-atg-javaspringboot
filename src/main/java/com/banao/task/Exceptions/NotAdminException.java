@@ -1,7 +1,7 @@
 package com.banao.task.Exceptions;
 
-public class UserAlreadyExists extends Exception {
-    public UserAlreadyExists(String message) {
+public class NotAdminException extends Exception {
+    public NotAdminException(String message) {
         super(message);
     }
 }

@@ -10,6 +10,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -24,6 +25,7 @@ import java.util.Properties;
 @EnableWebMvc
 @PropertySource(value= {"classpath:application.properties"})
 @ComponentScan(basePackages = "com.banao.task")
+@EnableScheduling
 public class MainConfig implements WebMvcConfigurer {
 
     @Value("${mailtrap.username}")
